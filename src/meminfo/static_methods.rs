@@ -6,7 +6,9 @@ use anyhow::{Context};
 
 
 
+
 impl MemInfo{
+
 
     pub fn create_mem_info() -> anyhow::Result<Self>{
         
@@ -20,7 +22,7 @@ impl MemInfo{
         // create reader
         let reader = BufReader::new(file);
 
-        let mut map = HashMap::new();
+        let mut map: HashMap<String, u64> = HashMap::new();
 
 
         // reading /proc/meminfo
@@ -39,7 +41,7 @@ impl MemInfo{
                 .trim();
 
 
-                if let Ok(val) = value.parse::<u128>(){
+                if let Ok(val) = value.parse::<u64>(){
                     map.insert(key.to_string() , val);
                 }
             }
@@ -54,3 +56,4 @@ impl MemInfo{
 
 
 }
+

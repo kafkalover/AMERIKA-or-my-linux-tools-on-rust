@@ -1,9 +1,13 @@
 use std::collections::HashMap;
 
 
+
+
 pub struct MemInfo{
 
-    pub(in crate:: meminfo)  map: HashMap<String, u128>
+
+
+    pub map: HashMap<String, u64>
 
     
 }
